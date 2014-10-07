@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugins>
+	<plugin name="Memory" description="JVM Memory Snap for the Application Server"
+		clazz="com.external.monitoring.plugin.impl.MemoryMonitorPlugin" />
+
+	<!-- <plugin name="Database" description="Database Connectivity Check"
+		clazz="com.external.monitoring.plugin.impl.DatabaseMonitoringPlugin">
+		<arg index="1" value="jdbc:oracle:thin:@10.105.54.173:1521:TESTECS" />
+		<arg index="2" value="ecs_nw_user" />
+		<arg index="3" value="M0nd4y" />
+	</plugin> -->
+	
+	<plugin name="Rest" description="Restful Connectivity Check"
+		clazz="com.external.monitoring.plugin.impl.HttpFormMonitorPlugin">
+		<arg index="1" value="http://freegeoip.net/json/planwell.com" />
+	</plugin>
+
+	
+</plugins>
