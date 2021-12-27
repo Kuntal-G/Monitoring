@@ -18,6 +18,7 @@ import com.external.monitoring.plugin.XArgument;
 import com.external.monitoring.plugin.XMonitoringPlugin;
 import com.external.monitoring.plugin.XPlugin;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 
 public final class Monitoring {
 	private static final int THREAD_TIMEOUT = 5;
@@ -90,6 +91,10 @@ public final class Monitoring {
 
 	private static List<XMonitoringPlugin> readPlugins() {
 		final XStream xStream = new XStream();
+		xStream.allowTypesByWildcard(new String[] { 
+			"com.external.monitoring.plugin.**",
+			"com.external.monitoring.plugin.impl.**"
+			});
 		xStream.processAnnotations(XPlugin.class);
 		final XPlugin fromXML = (XPlugin) xStream.fromXML(Monitoring.class.getResourceAsStream("/plugin-configuration.xml"));
 		return fromXML.plugins;

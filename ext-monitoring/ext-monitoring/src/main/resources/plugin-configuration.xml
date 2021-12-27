@@ -13,7 +13,7 @@
 	
 	<plugin name="Rest" description="Restful Connectivity Check"
 		clazz="com.external.monitoring.plugin.impl.HttpFormMonitorPlugin">
-		<arg index="1" value="http://freegeoip.net/json/planwell.com" />
+		<arg index="1" value="http://freegeoip.app/json/github.com" />
 	</plugin>
 
 	
